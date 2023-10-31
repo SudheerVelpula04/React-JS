@@ -1,0 +1,67 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+
+
+
+
+const ApiListFind=()=>{
+    const [data,setData]=useState([])
+    const [user,userData]=useState("")
+     useEffect(()=>{
+        axios.get(`https://jsonplaceholder.typicode.com/photos/${user}`).then((res)=>{setData([res.data])})
+     },[user])
+     const userNUm=(event)=>{
+        event.preventDefault()
+        const num=event.target.value
+        if(Number(num)>5000 || Number(num)<1){
+                alert("Enter number is not in data")
+        }
+        userData(num)
+     }
+     
+
+    return(
+                <>
+                    <label>Enter The Number:</label>
+                    <input type={"text"} value={user} onChange={(event)=>userNUm(event)} />
+                    {
+                        data.length> 0  &&
+                        data.map((ListData)=>{
+                                return(
+                                    <>
+                                     <Col xs>
+                                            <div className="CardApi">
+                                            <Card style={{ width: '18rem' }} key={`${ListData.id}`}>
+                                            <Card.Img variant="top" src={ListData.url} />
+                                                <Card.Body>
+                                                    <Card.Text>ID No:
+                                                        {ListData.id}
+                                                    </Card.Text>
+                                                    <Card.Title>{ListData.title}</Card.Title>
+                                                
+                                                </Card.Body>
+                                                <ListGroup className="list-group-flush">
+                                               
+                                                </ListGroup>
+                                                <Card.Body>
+                                                
+                                            </Card.Body>
+                                        </Card>
+                                        </div>
+                                        </Col>
+                                    
+                                    
+                                    </>
+
+                                )
+                        })
+                    }
+                   
+
+                </>
+    )
+}
+export default ApiListFind

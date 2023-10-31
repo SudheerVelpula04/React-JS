@@ -1,0 +1,21 @@
+.Register{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input{
+    border-radius: 5px;
+    border-color: pink;
+    color: red;
+}
+form{
+    background-color: blueviolet;
+}
+.button1{
+    margin-top: 20px;
+    border-radius: 5px;
+}
+table,th,tr,td{
+    border: 2px solid black !important;
+    border-collapse: collapse;
+}
