@@ -1,0 +1,5 @@
+.CardApi{
+    display: flex !important;
+    flex-direction: row !important;
+    margin: 10px !important;
+}

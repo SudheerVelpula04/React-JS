@@ -1,0 +1,8 @@
+.Life{
+    display:block !important;
+    flex-direction: column !important;
+    padding-left: 10px !important;
+    padding-top: 20px !important;
+    justify-content: space-evenly !important;
+   
+}
